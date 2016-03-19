@@ -6,6 +6,8 @@ var Map = React.createClass({
         var el = $(this.getDOMNode());
         // set el height and width etc.
         var wasEarthUpdatedRecently = 0
+        var lastLatitude = 46.8011
+        var lastLongitude = 8.2266
 
         var earth;
         function initializeEarth() {
@@ -24,16 +26,6 @@ var Map = React.createClass({
 
             console.log("HEHRREE");
             earth.setView([46.8011, 8.2266], 0.2);
-
-            /*
-            requestAnimationFrame(function animate(now) {
-                var c = earth.getPosition();
-                var elapsed = before? now - before: 0;
-                before = now;
-                earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
-                requestAnimationFrame(animate);
-            });
-            */
         }
 
         function startBackend() {
@@ -48,7 +40,26 @@ var Map = React.createClass({
                 $( ".result" ).html( data );
 
                 if (data.msg.data.type == "geo"){
-                    earth.setView([data.msg.data.lat, data.msg.data.long], 0.4);
+
+                    var newLatitude = data.msg.data.lat
+                    var newLongitude = data.msg.data.long
+
+                    earth.setView([lastLatitude, lastLongitude], 0.3);
+
+                    // Start a simple rotation animation
+                    var before = 0;
+
+                    requestAnimationFrame(function animate(now) {
+                        var c = earth.getPosition();
+                        var elapsed = before? now - before: 0;
+                        // console.log("now: " + now + " - elapsed")
+                        before = now;
+                        earth.setCenter([
+                            newLatitude,
+                            lastLongitude + ((lastLongitude - newLongitude) * 1 - (0.1 * (elapsed/30)))
+                        ]);
+                        requestAnimationFrame(animate);
+                    });
 
                     console.log("Got Coordinates lat: " + data.msg.data.lat)
                     console.log("Got Coordinates long: " + data.msg.data.long)
