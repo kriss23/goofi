@@ -6,8 +6,10 @@ var Overlay = require('./Overlay')
 var App = React.createClass({
     render: function () {
         return (
-            <Video />,
-            <Overlay />
+            <div className="app">
+                <Video />
+                <Overlay />
+            </div>
         );
     }
 });
