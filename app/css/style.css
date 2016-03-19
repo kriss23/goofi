@@ -12,13 +12,13 @@ body {
 	display: -webkit-flex;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	height:320px;
+	height: 320px;
 }
 
 .content_text {
-	font-weight:bold;
-	font-size:5em;
-	color:#fff;
+	font-weight: bold;
+	font-size: 5em;
+	color: #fff;
 }
 
 video {
@@ -28,7 +28,7 @@ video {
 
 .moving-car {
 	position: absolute;
-	left: -384px;
+	left: -500px;
 	width: auto;
 	height: 100px;
 	-webkit-animation: moving-car 2s forwards;
@@ -70,7 +70,7 @@ video {
 
 @-webkit-keyframes moving-car {
     0% {
-        left: 0;
+        left: -500px;
     }
 	100% {
         left: 620px;
@@ -79,7 +79,7 @@ video {
 
 @keyframes moving-car {
     0% {
-        left: 0;
+        left: -500px;
     }
     100% {
         left: 620px;
@@ -94,22 +94,6 @@ video {
     background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
-
-.overlay__image {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: calc(72px*3);
-}
-
-.overlay__text {
-    color: grey;
-    font-size: 20px;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    position: fixed;
-    bottom: 10px;
-    left: 100px;
 }
 
 #earth_div {
