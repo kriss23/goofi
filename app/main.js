@@ -8,9 +8,6 @@ window.init = function () {
         document.getElementById('main')
     );
 
-
-    console.log('hello');
-
 }
 
 setTimeout(init, 500);
