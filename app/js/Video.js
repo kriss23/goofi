@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var Video = React.createClass({
     render: function () {
         return (
-            <video controls autoplay src="http://images.mixd.tv/Das_Duell_um_die_Welt.mp4" type="video/mp4"></video>
+            <video autoplay src="http://images.mixd.tv/Das_Duell_um_die_Welt.mp4" type="video/mp4"></video>
         );
     }
 });
