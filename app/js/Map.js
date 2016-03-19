@@ -21,7 +21,7 @@ var Map = React.createClass({
             // Start a simple rotation animation
             var before = 0;
 
-            console.log("HEHRREE")
+            console.log("HEHRREE");
             earth.setView([46.8011, 8.2266], 0.2);
 
             /*
@@ -60,8 +60,8 @@ var Map = React.createClass({
             });
         }
 
-        initializeEarth()
-        startBackend()
+        initializeEarth();
+        startBackend();
 
         setTimeout(pollApi, 1000);
     },
