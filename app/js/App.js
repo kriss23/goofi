@@ -1,8 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Video = require('./Video');
-var Overlay = require('./Overlay')
-var Map = require('./Map')
+var Overlay = require('./Overlay');
+var Map = require('./Map');
 
 var App = React.createClass({
     render: function () {
