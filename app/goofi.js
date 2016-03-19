@@ -3,11 +3,8 @@
 // Declare app level module which depends on views, and components
 angular.module('editorialDashboardApp', [
   'ngRoute',
-  'editorialDashboardApp.view1',
-  'editorialDashboardApp.view2',
-  'editorialDashboardApp.playlist_iframe',
-  'editorialDashboardApp.version'
+  'editorialDashboardApp.tv_view',
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/tv_view'});
 }]);
