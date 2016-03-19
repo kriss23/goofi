@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var App = require('js/App');
 
 window.onload = function () {
     // TODO:: Do your initialization job
@@ -22,6 +23,6 @@ window.onload = function () {
 };
 
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    <App />,
     document.getElementById('app')
 );
