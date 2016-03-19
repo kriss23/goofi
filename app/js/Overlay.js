@@ -7,8 +7,8 @@ var Overlay = React.createClass({
         return (
             <div className="overlay">
                 <Map />
-                <img className="moving-car" src="app/image/GNTM-overlay-keyvisual.png" />
-                <img className="car-logo" src="app/image/GNTM-overlay-logo.png" />
+                <img className="moving-car" src="image/GNTM-overlay-keyvisual.png" />
+                <img className="car-logo" src="image/GNTM-overlay-logo.png" />
             </div>
         );
     }
