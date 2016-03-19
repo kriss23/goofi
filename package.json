@@ -1,0 +1,23 @@
+{
+  "name": "goofi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriss23/goofi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kriss23/goofi/issues"
+  },
+  "homepage": "https://github.com/kriss23/goofi#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
