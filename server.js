@@ -29,6 +29,28 @@ app.get('/', function(req, res) {
     res.sendfile('app/index.html')
 })
 
+app.get('/getLastMessage/', function(req, res) {
+    var fs = require('fs');
+    var timecodes_json = JSON.parse(fs.readFileSync('timecodes.json', 'utf8'));
+    var last_message = {}
+
+    for (var i = 0; i < timecodes_json.msg.length; i++) {
+        if (timecodes_json.msg[i].timecode <= timecode){
+            console.log("output at " + i + " is " + timecodes_json.msg[i])
+            last_message = timecodes_json.msg[i]
+        }
+    }
+
+    res.json({
+        'result': 'success',
+        'timecode': timecode,
+        'msg': {
+            'data':  last_message
+        }
+    });
+    res.end()
+})
+
 app.get('/start/', function(req, res) {
     /*
     var fs = require('fs');
@@ -48,6 +70,8 @@ app.get('/start/', function(req, res) {
     timecode = 0
 
     res.json(json_response);
+    res.end()
+
 })
 
 app.get("/*",function(req,res){

@@ -1,0 +1,25 @@
+{
+    "result": "success",
+    "msg": [
+        {
+            "timecode": 2,
+            "text": "Hello World after 2 seconds",
+            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        },
+        {
+            "timecode": 5,
+            "text": "Hello World after 5 seconds",
+            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        },
+        {
+            "timecode": 8,
+            "text": "Hello World after 8 seconds",
+            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        },
+        {
+            "timecode": 12,
+            "text": "Hello World after 12 seconds",
+            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        }
+    ]
+}
