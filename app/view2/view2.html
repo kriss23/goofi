@@ -1,0 +1,30 @@
+<div class="text-center center-block" style="padding: 15px; width: 1000px">
+    <h1 style="
+        color: #999;
+        text-shadow:
+            0.5px 0.5px black,
+            1px 1px white,
+            -1px -1px white,
+            -1px -1px black;
+        ">Senderliste VION</h1>
+    <br />
+    <div class='btn-group' ng-model="data.singleSelect">
+        <button class="btn btn-default list-group-item broadcaster_overview_icon"
+                ng-click="loadBroadcasterList(broadcaster)"
+                ng-repeat="broadcaster in broadcasters | orderBy:'counter'"
+                style="box-shadow: 3px 3px 3px rgba(0,0,0,0.5); z-index: {{broadcaster.counter}}; margin: 0.5px;">
+            <img style="padding-top: 25px; padding-bottom: 13px;"alt={{broadcaster.name}} src={{broadcaster.broadcasterLogo}} />
+            <div class="broadcasterCaption">
+                <p>{{broadcaster.counter}}</p>
+                <p style="margin-top: -13px">{{broadcaster.epgId}}</p>
+                <br />
+                <br />
+                <br />
+                <br />
+                <p style="margin-top: -13px">{{broadcaster.title}}</p>
+                <p style="font-weight: bold; margin-top: -13px; width: 140%; margin-left: -12px; text-overflow: ellipsis; overflow: hidden;">{{broadcaster.now_on_tv}}</p>
+            </div>
+        </button>
+        <br />
+    </div>
+</div>

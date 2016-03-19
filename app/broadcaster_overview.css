@@ -1,0 +1,21 @@
+/* app css stylesheet */
+
+.broadcaster_overview_icon {
+    width: 90px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.broadcaster_overview_icon img {
+    width: 75%;
+    top: -115%;
+    bottom: -100%;
+    left: -100%;
+    right: -100%;
+    position: absolute;
+    overflow: hidden;
+    margin: auto;
+}

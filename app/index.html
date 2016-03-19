@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 7]>    <html lang="en" class="ie ie7 lte9 lte8 lte7" data-ng-app="mixdtv"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="ie ie8 lte9 lte8" data-ng-app="mixdtv">      <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="ie ie9 lte9" data-ng-app="mixdtv">           <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="de" data-ng-app="editorialDashboardApp">              <!--<![endif]-->
+<head>
+    <title>mixd.tv Editorial Dashbaord</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <!--
+    <ul class="menu">
+      <li><a href="#/view1">view1</a></li>
+      <li><a href="#/view2">view2</a></li>
+    </ul>
+    -->
+    <div ng-view class="top-box"></div>
+    <!--
+    <div>Angular seed app: v<span app-version></span></div>
+    -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="goofi.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="playlist_iframe/playlist_iframe.js"></script>
+    <script language="javascript" type="text/javascript" defer>
+        <!--
+        console.log("START!");
+        $(window).trigger('resize');
+        // -->
+    </script>
+</body>
+</html>
