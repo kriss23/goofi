@@ -42,15 +42,11 @@ var Map = React.createClass({
             });
         }
 
-        $( "#earth_div" ).hide()
-
         function pollApi() {
             setTimeout(pollApi, 1000);
 
             $.get( "/getLastMessage", function( data ) {
                 $( ".result" ).html( data );
-
-                console.log("poloing API :-): " + data.msg.data.text)
 
                 if (data.msg.data.type == "geo"){
                     earth.setView([data.msg.data.lat, data.msg.data.long], 0.3);
