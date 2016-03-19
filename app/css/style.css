@@ -71,3 +71,8 @@ video {
     width: 100%;
     height: calc(72px*3);
 }
+
+#earth_div{ 
+    width: 300px;
+    position: absolute !important;
+}
