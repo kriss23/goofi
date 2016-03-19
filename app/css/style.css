@@ -70,19 +70,19 @@ video {
 
 @-webkit-keyframes moving-car {
     0% {
-        left: -500px;
+        left: -10%;
     }
 	100% {
-        left: 620px;
+        left: calc(100% - 620px);
     }
 }
 
 @keyframes moving-car {
     0% {
-        left: -500px;
+        left: -10%;
     }
     100% {
-        left: 620px;
+        left: calc(100% - 620px);
     }
 }
 

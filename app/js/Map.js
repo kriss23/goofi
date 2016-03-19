@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 
 var Map = React.createClass({
     componentDidMount: function() {
-        var el = $(this.getDOMNode());
         // set el height and width etc.
         var wasEarthUpdatedRecently = 0
         var lastLatitude = 46.8011
@@ -61,9 +60,9 @@ var Map = React.createClass({
                         requestAnimationFrame(animate);
                     });
 
-                    console.log("Got Coordinates lat: " + data.msg.data.lat)
-                    console.log("Got Coordinates long: " + data.msg.data.long)
-                    $( "#earth_div" ).show()
+                    console.log("Got Coordinates lat: " + data.msg.data.lat);
+                    console.log("Got Coordinates long: " + data.msg.data.long);
+                    $( "#earth_div" ).show();
                     wasEarthUpdatedRecently = 5
                 }
             });
@@ -73,13 +72,13 @@ var Map = React.createClass({
                 $( "#earth_div" ).hide()
             }
 
-            wasEarthUpdatedRecently += 1
+            wasEarthUpdatedRecently += 1;
             setTimeout(pollApi, 1000);
         }
 
         initializeEarth();
         startBackend();
-        $( "#earth_div" ).hide()
+        $( "#earth_div" ).hide();
 
         setTimeout(pollApi, 1000);
     },
