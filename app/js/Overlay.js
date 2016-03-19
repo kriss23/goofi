@@ -6,10 +6,10 @@ var Overlay = React.createClass({
         return (
             <div className="overlay">
                 <div className="overlay__text">
-                    
+                    <p className="fading-text">Finde deinen Adam-Style.</p>
                 </div>
                 <div className="overlay__image">
-                    <img className="slide" src="app/image/opel-adam-grey.png" />
+                    <img className="moving-car" src="app/image/opel-adam-grey.png" />
                 </div>
             </div>
         );
