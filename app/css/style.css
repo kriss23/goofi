@@ -26,32 +26,63 @@ video {
 	height: 100%;
 }
 
-.slide {
+.moving-car {
 	position: absolute;
 	left: -384px;
-	width: calc(128px*3);
-	height: calc(72px*3);
-	-webkit-animation: slide 0.5s forwards;
+	width: auto;
+	height: 100px;
+	-webkit-animation: moving-car 2s forwards;
 	-webkit-animation-delay: 2s;
-	animation: slide 2s forwards;
+	animation: moving-car 2s forwards;
 	animation-delay: 2s;
+    bottom: 40px;
 }
 
-@-webkit-keyframes slide {
+.car-logo {
+    right: 20px;
+    position: fixed;
+    width: 150px;
+    -webkit-animation: car-logo 2s forwards;
+    -webkit-animation-delay: 3s;
+    animation: car-logo 2s forwards;
+    animation-delay: 3s;
+    opacity: 0;
+    bottom: 40px;
+}
+
+@-webkit-keyframes car-logo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes car-logo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes moving-car {
     0% {
         left: 0;
     }
 	100% {
-        left: 900px;
+        left: 620px;
     }
 }
 
-@keyframes slide {
+@keyframes moving-car {
     0% {
         left: 0;
     }
     100% {
-        left: 900px;
+        left: 620px;
     }
 }
 
@@ -70,4 +101,22 @@ video {
     overflow: hidden;
     width: 100%;
     height: calc(72px*3);
+}
+
+.overlay__text {
+    color: grey;
+    font-size: 20px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    position: fixed;
+    bottom: 10px;
+    left: 100px;
+}
+
+#earth_div {
+    width: 300px;
+    position: absolute !important;
+}
+
+.cesium-credit-textContainer{
+    display: none;
 }
