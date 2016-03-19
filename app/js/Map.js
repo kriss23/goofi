@@ -68,10 +68,8 @@ var Map = React.createClass({
 
     render: function () {
         return (
-            <div className="overlay">
-                <div className="map">
-                    <div id="earth_div">
-                    </div>
+            <div className="map">
+                <div id="earth_div">
                 </div>
             </div>
         );
