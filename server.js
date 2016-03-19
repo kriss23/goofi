@@ -12,7 +12,7 @@ app.get('*', function(req, res, next){
 });
 
 app.get('/', function(req, res) {
-    res.sendfile('index.html')
+    res.sendfile('app/index.html')
 })
 
 app.get('/start/', function(req, res) {
