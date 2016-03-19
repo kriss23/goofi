@@ -42,6 +42,8 @@ var Map = React.createClass({
             });
         }
 
+        $( "#earth_div" ).hide()
+
         function pollApi() {
             setTimeout(pollApi, 1000);
 
@@ -59,7 +61,6 @@ var Map = React.createClass({
                 } else {
                     $( "#earth_div" ).hide()
                 }
-
             });
         }
 
