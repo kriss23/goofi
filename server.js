@@ -63,7 +63,10 @@ app.get('/start/', function(req, res) {
 
     var json_response = {
         "state": "started",
-        "data": "restarted from " + timecode
+        "msg": {
+            "data": "restarted from " + timecode,
+            "video": "http://images.mixd.tv/GNTM.mp4"
+        }
     }
     timecode = 0
 
