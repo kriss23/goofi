@@ -9,7 +9,7 @@ var Map = React.createClass({
         var earth;
         function initialize() {
             earth = new WE.map('earth_div');
-            earth.setView([46.8011, 8.2266], 0.5);
+            earth.setView([46.8011, 8.2266], 0.2);
             WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
                 attribution: ''
             }).addTo(earth);
@@ -28,7 +28,13 @@ var Map = React.createClass({
             });
         }
 
+        function pollApi() {
+            setTimeout(pollApi, 1000);
+            // console.log("poloing API :-)")
+        }
+
         initialize()
+        setTimeout(pollApi, 1000);
     },
 
     render: function () {
