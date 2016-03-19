@@ -1,3 +1,10 @@
 .idea
 node_modules/
 bundle.js
+.CustomProfile
+.metadata
+app/.settings
+app/.sign
+app/.project
+app/.sdk_delta.info
+app/app.wgt
