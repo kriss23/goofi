@@ -5,6 +5,7 @@ var Map = React.createClass({
     componentDidMount: function() {
         var el = $(this.getDOMNode());
         // set el height and width etc.
+        var wasEarthUpdatedRecently = 0
 
         var earth;
         function initializeEarth() {
@@ -43,35 +44,39 @@ var Map = React.createClass({
         }
 
         function pollApi() {
-            setTimeout(pollApi, 1000);
-
             $.get( "/getLastMessage", function( data ) {
                 $( ".result" ).html( data );
 
                 if (data.msg.data.type == "geo"){
-                    earth.setView([data.msg.data.lat, data.msg.data.long], 0.3);
+                    earth.setView([data.msg.data.lat, data.msg.data.long], 0.4);
 
                     console.log("Got Coordinates lat: " + data.msg.data.lat)
                     console.log("Got Coordinates long: " + data.msg.data.long)
                     $( "#earth_div" ).show()
-                } else {
-                    $( "#earth_div" ).hide()
+                    wasEarthUpdatedRecently = 5
                 }
             });
+
+            if (wasEarthUpdatedRecently >= 5){
+                // hide after 5 seconds
+                $( "#earth_div" ).hide()
+            }
+
+            wasEarthUpdatedRecently += 1
+            setTimeout(pollApi, 1000);
         }
 
         initializeEarth();
         startBackend();
+        $( "#earth_div" ).hide()
 
         setTimeout(pollApi, 1000);
     },
 
     render: function () {
         return (
-            <div className="overlay">
-                <div className="map">
-                    <div id="earth_div">
-                    </div>
+            <div className="map">
+                <div id="earth_div">
                 </div>
             </div>
         );
