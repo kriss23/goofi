@@ -1,6 +1,8 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 
+var timecode = 0
+
 var app = express()
 
 app.use(bodyParser.json())
@@ -10,12 +12,22 @@ app.get('*', function(req, res, next){
 });
 
 app.get('/', function(req, res) {
-    res.sendfile('app/index.html')
+    res.sendfile('index.html')
 })
 
-app.get('/broadcasters/', function(req, res) {
+app.get('/start/', function(req, res) {
+    /*
     var fs = require('fs');
     var json_response = JSON.parse(fs.readFileSync('demo_data/broadcasters.json', 'utf8'));
+    */
+
+    timecode = 0
+
+    var json_response = {
+        "state": "started",
+        "data": "restarted from " + timecode
+    }
+
     res.json(json_response);
 })
 
