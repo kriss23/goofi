@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "compile": "browserify -t [ babelify --presets [ react ] ] app/main.js -o bundle.js"
+    "compile": "browserify -t [ babelify --presets [ react ] ] app/main.js -o app/bundle.js"
   },
   "repository": {
     "type": "git",

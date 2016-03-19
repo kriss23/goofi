@@ -1,6 +1,6 @@
 .idea
 node_modules/
-bundle.js
+app/bundle.js
 .CustomProfile
 .metadata
 app/.settings
