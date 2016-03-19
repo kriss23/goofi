@@ -24,5 +24,5 @@ window.onload = function () {
 
 ReactDOM.render(
     <App />,
-    document.getElementById('app')
+    document.getElementById('main')
 );
