@@ -36,7 +36,6 @@ app.get('/getLastMessage/', function(req, res) {
 
     for (var i = 0; i < timecodes_json.msg.length; i++) {
         if (timecodes_json.msg[i].timecode <= timecode){
-            console.log("output at " + i + " is " + timecodes_json.msg[i])
             last_message = timecodes_json.msg[i]
         }
     }
@@ -59,7 +58,6 @@ app.get('/start/', function(req, res) {
 
     if (!is_timeout_running){
         is_timeout_running = true
-        console.log("BLUAGG")
         setTimeout(timeoutMethod, 1000);
     }
 
