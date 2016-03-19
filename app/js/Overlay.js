@@ -5,7 +5,7 @@ var Overlay = React.createClass({
     render: function () {
         return (
             <div class="wrapper">
-                <img id="slide" src="image/opel-adam-grey.png" />
+                <img id="slide" src="app/image/opel-adam-grey.png" />
             </div>
         );
     }
