@@ -3,7 +3,7 @@
 }
 
 body {
-    margin: 0px auto;
+    margin: 0;
     background-color:#222;
 }
 
@@ -15,11 +15,15 @@ body {
 	height:320px;
 }
 
-
 .content_text {
 	font-weight:bold;
 	font-size:5em;
 	color:#fff;
+}
+
+video {
+	width: 100%;
+	height: 100%;
 }
 
 .wrapper {
