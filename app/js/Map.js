@@ -2,9 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var Map = React.createClass({
+
     componentDidMount: function() {
         // set el height and width etc.
-        var isNewCoordinate = true
+
         var wasEarthUpdatedRecently = 0
         var lastLatitude = 46.8011
         var lastLongitude = 8.2266
@@ -28,64 +29,46 @@ var Map = React.createClass({
             earth.setView([46.8011, 8.2266], 0.2);
         }
 
-        function pollApi() {
-            $.get( "/getLastMessage", function( data ) {
-                $( ".result" ).html( data );
-
-                if (data.msg.data.type == "geo"){
-                    if (isNewCoordinate) {
-                        var newLatitude = data.msg.data.lat
-                        var newLongitude = data.msg.data.long
-                        var goalTime = 0;
-
-                        function requestAnimationFrame() {
-                            var c = earth.getPosition();
-                            if (isNewCoordinate){
-                                goalTime = Date.now() + 3000
-                            }
-                            var timeLeft = goalTime - Date.now();
-                            if (timeLeft < 0){
-                                timeLeft = 0
-                                lastLatitude = newLatitude
-                                lastLongitude = newLongitude
-                                return
-                            }
-
-                            console.log("now: " + Date.now() + " - timeLeft" + timeLeft)
-
-                            earth.setCenter([
-                                lastLatitude + ((newLatitude - lastLatitude) * (1 - (0.0005 * timeLeft))),
-                                lastLongitude + ((newLongitude - lastLongitude) * (1 - (0.0005 * timeLeft))),
-                            ]);
-                            setTimeout(requestAnimationFrame, 25); // 50 Hz
-                        };
-                        requestAnimationFrame()
-                        isNewCoordinate = false
-                    }
-
-                    console.log("Got Coordinates lat: " + data.msg.data.lat);
-                    console.log("Got Coordinates long: " + data.msg.data.long);
-                    $( "#earth_div" ).show();
-                    wasEarthUpdatedRecently = 0
-                } else {
-                    isNewCoordinate = true
-                }
-
-            });
-
-            if (wasEarthUpdatedRecently >= 4){
-                // hide after 5 seconds
-                $( "#earth_div" ).hide()
-            }
-
-            wasEarthUpdatedRecently += 1;
-            //setTimeout(pollApi, 1000);
-        }
-
         initializeEarth();
         $( "#earth_div" ).hide();
 
-        //setTimeout(pollApi, 1000);
+    },
+
+    componentDidUpdate: function (prevProps, prevState) {
+        if (prevProps.data.lat !== this.props.data.lat) {
+            var newLatitude = this.props.data.lat;
+            var newLongitude = this.props.data.long;
+            var goalTime = 0;
+            var isNewCoordinate = true;
+
+            function requestAnimationFrame() {
+                var c = earth.getPosition();
+                if (isNewCoordinate){
+                    goalTime = Date.now() + 3000
+                }
+                var timeLeft = goalTime - Date.now();
+                if (timeLeft < 0){
+                    timeLeft = 0
+                    lastLatitude = newLatitude
+                    lastLongitude = newLongitude
+                    return
+                }
+
+                console.log("now: " + Date.now() + " - timeLeft" + timeLeft)
+
+                earth.setCenter([
+                    lastLatitude + ((newLatitude - lastLatitude) * (1 - (0.0005 * timeLeft))),
+                    lastLongitude + ((newLongitude - lastLongitude) * (1 - (0.0005 * timeLeft))),
+                ]);
+                setTimeout(requestAnimationFrame, 25); // 50 Hz
+            };
+            requestAnimationFrame()
+            isNewCoordinate = false
+        }
+
+        console.log("Got Coordinates lat: " + this.props.data.lat);
+        console.log("Got Coordinates long: " + this.props.data.long);
+        $( "#earth_div" ).show();
     },
 
     render: function () {

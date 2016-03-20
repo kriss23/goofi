@@ -22,10 +22,25 @@ var App = React.createClass({
     componentDidMount: function() {
         this.initSocketConnection();
         this.initApi();
+        document.addEventListener('keydown', this.handleOnKeyDown);
     },
     componentDidUpdate: function (prevProps, prevState) {
         if (this.state.adOn) {
             // if ad is on dont do the pulling
+        }
+    },
+    handleOnKeyDown: function () {
+        console.log('handle on key down');
+        if (this.state.data) {
+            if (window.channel) {
+                console.log('Channel is ready, trying to push ');
+                window.channel.publish('say',
+                    {
+                        img: 'http://nude-girls.pics/sll/thumbs/ff/317548.jpg',
+                        lnk: 'http://google.com'
+                    }
+                )
+            }
         }
     },
     initSocketConnection: function () {
@@ -42,9 +57,9 @@ var App = React.createClass({
                 console.log(from.attributes.name + ' says, ' + msg);
             });
 
-            channel.on('clientConnect', function(client){
+            /*channel.on('clientConnect', function(client){
                 channel.publish('say', 'Hello '+client.attributes.name, client.id);
-            });
+            });*/
 
             window.channel = channel;
 
@@ -67,14 +82,12 @@ var App = React.createClass({
     startPulling: function () {
         var self = this;
         $.get( this.props.baseApiUrl + "/getLastMessage", function( data ) {
-            var type = data.msg.data.type,
-                active = data.msg.data.active;
 
-            if (active) {
+            if (data.msg.data.active) {
                 this.active = true;
 
                 self.setState({
-                    ad: type,
+                    data: data.msg.data,
                     adOn: true
                 });
             } else {
@@ -93,13 +106,15 @@ var App = React.createClass({
 
     render: function () {
         var ad;
-        switch (this.state.ad) {
-            case 'geo':
-                ad = <Map />;
-                break;
-            case 'ad':
-                ad = <Overlay />
-                break;
+        if (this.state.data) {
+            switch (this.state.data.type) {
+                case 'geo':
+                    ad = <Map data={ this.state.data }/>;
+                    break;
+                case 'ad':
+                    ad = <Overlay />
+                    break;
+            }
         }
         return (
             <div className="app">
