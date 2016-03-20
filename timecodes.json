@@ -5,7 +5,7 @@
             "timecode": 1,
             "type": "ad",
             "text": "Hello World after 1 seconds",
-            "duration": 5,
+            "duration": 3,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
@@ -14,11 +14,11 @@
             "text": "Hello World after 2 seconds",
             "lat": 5.970092,
             "long": -62.536203,
-            "duration": 5,
+            "duration": 3,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 8,
+            "timecode": 10,
             "type": "ad",
             "text": "Hello World after 8 seconds",
             "duration": 5,

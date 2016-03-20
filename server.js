@@ -4,7 +4,6 @@ var bodyParser = require('body-parser')
 var timecode = 0
 var is_timeout_running = false
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Helper functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,6 +36,11 @@ app.get('/getLastMessage/', function(req, res) {
     for (var i = 0; i < timecodes_json.msg.length; i++) {
         if (timecodes_json.msg[i].timecode <= timecode){
             last_message = timecodes_json.msg[i]
+            if (last_message.timecode + last_message.duration >= timecode){
+                last_message.active = true
+            } else {
+                last_message.active = false
+            }
         }
     }
 
