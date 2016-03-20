@@ -4,7 +4,7 @@ window.init = function () {
     var App = require('./js/App');
 
     ReactDOM.render(
-    <App />,
+        <App />,
         document.getElementById('main')
     );
 

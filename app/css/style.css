@@ -101,6 +101,12 @@ video {
     position: absolute !important;
 }
 
+#recommend_div {
+    bottom: 200;
+    width: 300px;
+    position: absolute !important;
+}
+
 .cesium-credit-textContainer{
     display: none;
 }
