@@ -84,6 +84,9 @@ var App = React.createClass({
                 });
                 this.active = false;
             }
+            if (data.msg.data.videoSrc) {
+                self.setState({videoSrc: data.msg.data.videoSrc});
+            }
             console.log(this.active);
         });
     },
@@ -91,10 +94,10 @@ var App = React.createClass({
     render: function () {
         var ad;
         switch (this.state.ad) {
-            case 'overlay':
+            case 'geo':
                 ad = <Map />;
                 break;
-            case 'geo':
+            case 'ad':
                 ad = <Overlay />
                 break;
         }
