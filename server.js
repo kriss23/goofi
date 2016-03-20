@@ -40,6 +40,7 @@ app.get('/getLastMessage/', function(req, res) {
         }
     }
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json({
         'result': 'success',
         'timecode': timecode,
@@ -69,14 +70,14 @@ app.get('/start/', function(req, res) {
         }
     }
     timecode = 0
-
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(json_response);
     res.end()
 
 })
 
 app.get("/*",function(req,res){
-  res.sendfile('./'+req.path);
+    res.sendfile('./'+req.path);
 });
 
 
