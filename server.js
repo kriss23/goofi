@@ -1,6 +1,10 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 
+var twitterUserInterested = require('./server/UserProfile')
+
+var isUserInterested = false
+
 var timecode = 0
 var is_timeout_running = false
 
@@ -36,8 +40,17 @@ app.get('/getLastMessage/', function(req, res) {
     for (var i = 0; i < timecodes_json.msg.length; i++) {
         if (timecodes_json.msg[i].timecode <= timecode){
             last_message = timecodes_json.msg[i]
+            last_message.filtered = false
             if (last_message.timecode + last_message.duration >= timecode){
                 last_message.active = true
+                console.log("TTTT" + isUserInterested)
+                if (!isUserInterested && (
+                        last_message.filter.indexOf("opel") > -1 ||
+                        last_message.filter.indexOf("adam") > -1))
+                {
+                        last_message.filtered = true
+                        last_message.active = false
+                }
             } else {
                 last_message.active = false
             }
@@ -60,6 +73,12 @@ app.get('/start/', function(req, res) {
     var fs = require('fs');
     var json_response = JSON.parse(fs.readFileSync('demo_data/broadcasters.json', 'utf8'));
     */
+
+    console.log("TTTTT2 " + isUserInterested)
+    twitterUserInterested(function(value){
+        isUserInterested = value
+    })
+    console.log("TTTTT3 " + isUserInterested)
 
     if (!is_timeout_running){
         is_timeout_running = true

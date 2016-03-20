@@ -80,7 +80,7 @@ var Map = React.createClass({
 
             });
 
-            if (wasEarthUpdatedRecently >= 5){
+            if (wasEarthUpdatedRecently >= 4){
                 // hide after 5 seconds
                 $( "#earth_div" ).hide()
             }

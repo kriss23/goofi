@@ -2,7 +2,7 @@
     "result": "success",
     "msg": [
         {
-            "timecode": 1,
+            "timecode": 3,
             "type": "ad",
             "text": "Hello World after 1 seconds",
             "filter": [
@@ -13,7 +13,7 @@
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 2,
+            "timecode": 5,
             "type": "geo",
             "text": "Hello World after 2 seconds",
             "filter": [
@@ -22,13 +22,14 @@
             ],
             "lat": 5.970092,
             "long": -62.536203,
-            "duration": 3,
+            "duration": 5,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
             "timecode": 10,
             "type": "ad",
             "text": "Hello World after 8 seconds",
+            "filter": [],
             "duration": 5,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
@@ -36,24 +37,17 @@
             "timecode": 12,
             "type": "geo",
             "text": "Hello World after 2 seconds",
+            "filter": [],
             "lat": 28.613939,
             "long": 77.209021,
-            "duration": 3,
+            "duration": 5,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
             "timecode": 15,
             "type": "ad",
+            "filter": [],
             "text": "Hello World after 12 seconds",
-            "duration": 5,
-            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
-        },
-        {
-            "timecode": 20,
-            "type": "geo",
-            "text": "Hello World after 20 seconds",
-            "lat": 5.970092,
-            "long": -62.536203,
             "duration": 5,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         }

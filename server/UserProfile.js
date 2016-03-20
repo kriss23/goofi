@@ -13,24 +13,32 @@ var oauth = new Oauth.OAuth(
     'HMAC-SHA1'
 );
 
-oauth.get(
-    'https://api.twitter.com/1.1/statuses/user_timeline.json?count=100&user_id=dimified&screen_name=dimified',
-    '492083552-Q68W0j2twhfZqekJ4jOqQR3zXj4AYJsO2ZuVzTaB',
-    'gMZfonK93BQDC5mAbLNKBp5hqrTp5pM9DdliADeIZv81p',
-    function (e, data) {
-        if (e) console.error(e);
+function getUserInterested(interestedCB){
+    oauth.get(
+        'https://api.twitter.com/1.1/statuses/user_timeline.json?count=100&user_id=dimified&screen_name=dimified',
+        '492083552-Q68W0j2twhfZqekJ4jOqQR3zXj4AYJsO2ZuVzTaB',
+        'gMZfonK93BQDC5mAbLNKBp5hqrTp5pM9DdliADeIZv81p',
+        function (e, data) {
+            if (e) console.error(e);
 
-        JSON.parse(data).forEach(function (obj) {
-            textArray.push(obj.text);
-        });
+            console.log("retuned!")
 
-        textString = textArray.join(',').toLowerCase();
+            JSON.parse(data).forEach(function (obj) {
+                textArray.push(obj.text);
+            });
 
-        if (textString.indexOf('opel') > -1 ||
-            textString.indexOf('adam') > -1 ) {
-            userIsInterested = true;
+            textString = textArray.join(',').toLowerCase();
+
+
+            console.log("retuned!" + textString)
+
+            if (textString.indexOf('opel') > -1 ||
+                textString.indexOf('adam') > -1 ) {
+                interestedCB(true);
+            }
         }
-    }
-);
+    );
+    interestedCB(false);
+}
 
-module.exports = userIsInterested;
+module.exports = getUserInterested;
