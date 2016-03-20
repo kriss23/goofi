@@ -43,19 +43,24 @@ var Map = React.createClass({
                     if (isNewCoordinate) {
                         var newLatitude = data.msg.data.lat
                         var newLongitude = data.msg.data.long
-                        var before = 0;
+                        var goalTime = 0;
 
                         function requestAnimationFrame() {
                             var c = earth.getPosition();
                             if (isNewCoordinate){
-                                before = Date.now()
+                                goalTime = Date.now() + 3000
                             }
-                            elapsed = Date.now() - before;
-                            console.log("now: " + Date.now() + " - elapsed" + elapsed)
+                            var timeLeft = goalTime - Date.now();
+                            if (timeLeft < 0){
+                                timeLeft = 0
+                                return
+                            }
+
+                            console.log("now: " + Date.now() + " - timeLeft" + timeLeft)
 
                             earth.setCenter([
-                                newLatitude,
-                                lastLongitude + ((lastLongitude - newLongitude) * (1 - (0.1 * (elapsed/3))))
+                                lastLatitude + ((newLatitude - lastLatitude) * (1 - (0.00025 * timeLeft))),
+                                lastLongitude + ((newLongitude - lastLongitude) * (1 - (0.00025 * timeLeft))),
                             ]);
                             setTimeout(requestAnimationFrame, 25); // 50 Hz
                         };
