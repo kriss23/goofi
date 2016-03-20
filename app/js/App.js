@@ -9,15 +9,14 @@ var App = React.createClass({
     active: false,
     getDefaultProps: function () {
         return {
-            baseApiUrl: 'http://localhost:3000'
+            baseApiUrl: 'http://10.100.105.108:3000'
         }
     },
     getInitialState: function() {
         return {
             videoSrc: null,
             ad: null,
-            adOn: false,
-            data: null
+            adOn: false
         }
     },
     componentDidMount: function() {
@@ -25,20 +24,15 @@ var App = React.createClass({
         this.initApi();
         document.addEventListener('keydown', this.handleOnKeyDown);
     },
-    componentDidUpdate: function (prevProps, prevState) {
-        if (this.state.adOn) {
-            // if ad is on dont do the pulling
-        }
-    },
     handleOnKeyDown: function () {
         console.log('handle on key down');
-        if (this.state.data) {
+        if (this.state.ad) {
             if (window.channel) {
                 console.log('Channel is ready, trying to push ');
                 window.channel.publish('say',
                     {
-                        img: 'http://nude-girls.pics/sll/thumbs/ff/317548.jpg',
-                        lnk: 'http://google.com'
+                        img: 'https://data.motor-talk.de/data/galleries/0/6/7618/48882008/opel-adam-02-3558568649803261659.jpg',
+                        lnk: 'http://www.opel.de/fahrzeuge/modelle/personenwagen/adam/index.html'
                     }
                 )
             }
@@ -58,9 +52,9 @@ var App = React.createClass({
                 console.log(from.attributes.name + ' says, ' + msg);
             });
 
-            /*channel.on('clientConnect', function(client){
+            channel.on('clientConnect', function(client){
                 channel.publish('say', 'Hello '+client.attributes.name, client.id);
-            });*/
+            });
 
             window.channel = channel;
 
@@ -83,12 +77,14 @@ var App = React.createClass({
     startPulling: function () {
         var self = this;
         $.get( this.props.baseApiUrl + "/getLastMessage", function( data ) {
+            var type = data.msg.data.type,
+                active = data.msg.data.active;
 
-            if (data.msg.data.active) {
-                self.active = true;
+            if (active) {
+                this.active = true;
 
                 self.setState({
-                    data: data.msg.data,
+                    ad: data.msg.data,
                     adOn: true
                 });
             } else {
@@ -96,28 +92,27 @@ var App = React.createClass({
                     ad: null,
                     adOn: false
                 });
-                self.active = false;
+                this.active = false;
             }
             if (data.msg.data.videoSrc) {
                 self.setState({videoSrc: data.msg.data.videoSrc});
             }
-            console.log(self.active);
+            console.log(this.active);
         });
     },
 
     render: function () {
         var overlay;
-        if (this.state.data) {
-            switch (this.state.data.type) {
+        if (this.state.ad){
+            switch (this.state.ad.type) {
                 case 'geo':
-                    overlay = <Overlay data={ this.state.data }/>;
+                    overlay = <Overlay baseApiUrl={ this.props.baseApiUrl } ad={this.state.ad} />;
                     break;
                 case 'ad':
-                    overlay = <Overlay data={ this.state.data }/>;
+                    overlay = <Overlay baseApiUrl={ this.props.baseApiUrl } ad={this.state.ad} />;
                     break;
             }
         }
-
         return (
             <div className="app">
                 <Video videoSrc={ this.state.videoSrc }/>

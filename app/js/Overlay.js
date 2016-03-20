@@ -6,15 +6,15 @@ var Overlay = React.createClass({
 
     render: function () {
         var content;
-        if (this.props.data.type === 'ad') {
+        if (this.props.ad.type === 'ad') {
             content = <div className="content">
                 <img className="moving-car" src="image/GNTM-overlay-keyvisual.png" />
                 <img className="car-logo" src="image/GNTM-overlay-logo.png" />
             </div>;
         }
 
-        if (this.props.data.type === 'geo') {
-            content = <Map data={ this.props.data }/>;
+        if (this.props.ad.type === 'geo') {
+            content = <Map  baseApiUrl={ this.props.baseApiUrl }  ad={ this.props.ad }/>;
         }
 
         return (
