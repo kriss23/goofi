@@ -27,13 +27,6 @@ var Map = React.createClass({
             earth.setView([46.8011, 8.2266], 0.2);
         }
 
-        function startBackend() {
-            $.get( "/start", function( data ) {
-                $( ".result" ).html( data );
-                console.log("starting backend at timecode 0")
-            });
-        }
-
         function pollApi() {
             $.get( "/getLastMessage", function( data ) {
                 $( ".result" ).html( data );
@@ -73,14 +66,13 @@ var Map = React.createClass({
             }
 
             wasEarthUpdatedRecently += 1;
-            setTimeout(pollApi, 1000);
+            //setTimeout(pollApi, 1000);
         }
 
         initializeEarth();
-        startBackend();
         $( "#earth_div" ).hide();
 
-        setTimeout(pollApi, 1000);
+        //setTimeout(pollApi, 1000);
     },
 
     render: function () {
