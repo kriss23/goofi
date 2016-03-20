@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 var Map = React.createClass({
     componentDidMount: function() {
         // set el height and width etc.
+        var isNewCoordinate = true
         var wasEarthUpdatedRecently = 0
         var lastLatitude = 46.8011
         var lastLongitude = 8.2266
@@ -11,7 +12,7 @@ var Map = React.createClass({
         var earth;
         function initializeEarth() {
             earth = new WE.map('earth_div');
-            earth.setView([46.8011, 8.2266], 0.2);
+            earth.setView([lastLatitude, lastLongitude], 0.2);
             WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
                       tileSize: 256,
                       bounds: [[-85, -180], [85, 180]],
@@ -39,32 +40,37 @@ var Map = React.createClass({
                 $( ".result" ).html( data );
 
                 if (data.msg.data.type == "geo"){
+                    if (isNewCoordinate) {
+                        var newLatitude = data.msg.data.lat
+                        var newLongitude = data.msg.data.long
+                        var before = 0;
 
-                    var newLatitude = data.msg.data.lat
-                    var newLongitude = data.msg.data.long
+                        function requestAnimationFrame() {
+                            var c = earth.getPosition();
+                            if (isNewCoordinate){
+                                before = Date.now()
+                            }
+                            elapsed = Date.now() - before;
+                            console.log("now: " + Date.now() + " - elapsed" + elapsed)
 
-                    earth.setView([lastLatitude, lastLongitude], 0.3);
-
-                    // Start a simple rotation animation
-                    var before = 0;
-
-                    requestAnimationFrame(function animate(now) {
-                        var c = earth.getPosition();
-                        var elapsed = before? now - before: 0;
-                        // console.log("now: " + now + " - elapsed")
-                        before = now;
-                        earth.setCenter([
-                            newLatitude,
-                            lastLongitude + ((lastLongitude - newLongitude) * 1 - (0.1 * (elapsed/30)))
-                        ]);
-                        requestAnimationFrame(animate);
-                    });
+                            earth.setCenter([
+                                newLatitude,
+                                lastLongitude + ((lastLongitude - newLongitude) * (1 - (0.1 * (elapsed/3))))
+                            ]);
+                            setTimeout(requestAnimationFrame, 25); // 50 Hz
+                        };
+                        requestAnimationFrame()
+                        isNewCoordinate = false
+                    }
 
                     console.log("Got Coordinates lat: " + data.msg.data.lat);
                     console.log("Got Coordinates long: " + data.msg.data.long);
                     $( "#earth_div" ).show();
                     wasEarthUpdatedRecently = 5
+                } else {
+                    isNewCoordinate = true
                 }
+
             });
 
             if (wasEarthUpdatedRecently >= 5){
