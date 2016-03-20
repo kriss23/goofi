@@ -89,8 +89,16 @@ var Map = React.createClass({
     },
 
     render: function () {
+        var image;
+        if (this.props.ad.filter.indexOf('indien') > -1) {
+            image = <img className="image" src="image/Overlay-India.png" />;
+        }
+        if (this.props.ad.filter.indexOf('venezuela') > -1) {
+            image = <img className="image" src="image/Overlay-Venezuela.png" />;
+        }
         return (
             <div className="map">
+                { image }
                 <div id="earth_div">
                 </div>
             </div>
