@@ -9,7 +9,7 @@ var App = React.createClass({
     active: false,
     getDefaultProps: function () {
         return {
-            baseApiUrl: 'http://goofi.mixd.tv:3000'
+            baseApiUrl: 'http://localhost:3000'
         }
     },
     getInitialState: function() {
@@ -92,19 +92,19 @@ var App = React.createClass({
     },
 
     render: function () {
-        var ad;
+        var overlay;
         switch (this.state.ad) {
             case 'geo':
-                ad = <Map />;
+                overlay = <Overlay type="geo" />;
                 break;
             case 'ad':
-                ad = <Overlay />
+                overlay = <Overlay type="ad" />;
                 break;
         }
         return (
             <div className="app">
                 <Video videoSrc={ this.state.videoSrc }/>
-                {ad}
+                { overlay }
             </div>
         );
     }
