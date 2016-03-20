@@ -24,7 +24,7 @@
             "videoSrc": "http://images.mixd.tv/Das_Duell_um_die_Welt.mp4"
         },
         {
-            "timecode": 65,
+            "timecode": 70,
             "type": "geo",
             "text": "Hello World after 2 seconds",
             "filter": [
@@ -33,7 +33,7 @@
             ],
             "lat": 28.613939,
             "long": 77.209021,
-            "duration": 8,
+            "duration": 15,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg",
             "mobile": {
                 "img": "http://10.100.105.108:3000/app/image/Duell-um-die-Welt-Push-Screen-1.jpg",
@@ -41,7 +41,7 @@
             }
         },
         {
-            "timecode": 108,
+            "timecode": 105,
             "type": "geo",
             "text": "Hello World after 8 seconds",
             "filter": [
@@ -50,7 +50,7 @@
             ],
             "lat": 5.970092,
             "long": -62.536203,
-            "duration": 8,
+            "duration": 30,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg",
             "mobile": {
                 "img": "http://10.100.105.108:3000/app/image/Duell-um-die-Welt-Push-Screen-3",
