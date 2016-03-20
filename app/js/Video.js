@@ -6,7 +6,7 @@ var Video = React.createClass({
         var videoSrc = this.props.videoSrc,
             video = <div></div>;
         if (videoSrc) {
-            video = <video muted autoPlay src="http://images.mixd.tv/GNTM.mp4" type="video/mp4"></video>;
+            video = <video muted autoPlay src={ videoSrc } type="video/mp4"></video>;
         }
         return (
             video

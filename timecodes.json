@@ -4,7 +4,7 @@
         {
             "timecode": 3,
             "type": "ad",
-            "text": "Hello World after 1 seconds",
+            "text": "Hello World after 3 seconds",
             "filter": [
                 "opel",
                 "adam"
@@ -13,9 +13,9 @@
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 5,
+            "timecode": 8,
             "type": "geo",
-            "text": "Hello World after 2 seconds",
+            "text": "Hello World after 8 seconds",
             "filter": [
                 "reise",
                 "venezuela"
@@ -26,7 +26,7 @@
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 10,
+            "timecode": 16,
             "type": "ad",
             "text": "Hello World after 8 seconds",
             "filter": [],
@@ -34,7 +34,7 @@
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 12,
+            "timecode": 22,
             "type": "geo",
             "text": "Hello World after 2 seconds",
             "filter": [],
@@ -44,12 +44,19 @@
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 15,
+            "timecode": 28,
             "type": "ad",
             "filter": [],
             "text": "Hello World after 12 seconds",
             "duration": 5,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        },
+        {
+            "timecode": 59,
+            "type": "geo",
+            "text": "Hello World after 15 seconds",
+            "filter": [],
+            "videoSrc": "http://images.mixd.tv/Das_Duell_um_die_Welt.mp4"
         }
     ]
 }

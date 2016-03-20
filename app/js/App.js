@@ -9,14 +9,15 @@ var App = React.createClass({
     active: false,
     getDefaultProps: function () {
         return {
-            baseApiUrl: 'http://goofi.mixd.tv:3000'
+            baseApiUrl: 'http://localhost:3000'
         }
     },
     getInitialState: function() {
         return {
             videoSrc: null,
             ad: null,
-            adOn: false
+            adOn: false,
+            data: null
         }
     },
     componentDidMount: function() {
@@ -84,7 +85,7 @@ var App = React.createClass({
         $.get( this.props.baseApiUrl + "/getLastMessage", function( data ) {
 
             if (data.msg.data.active) {
-                this.active = true;
+                self.active = true;
 
                 self.setState({
                     data: data.msg.data,
@@ -95,31 +96,32 @@ var App = React.createClass({
                     ad: null,
                     adOn: false
                 });
-                this.active = false;
+                self.active = false;
             }
             if (data.msg.data.videoSrc) {
                 self.setState({videoSrc: data.msg.data.videoSrc});
             }
-            console.log(this.active);
+            console.log(self.active);
         });
     },
 
     render: function () {
-        var ad;
+        var overlay;
         if (this.state.data) {
             switch (this.state.data.type) {
                 case 'geo':
-                    ad = <Map data={ this.state.data }/>;
+                    overlay = <Overlay data={ this.state.data }/>;
                     break;
                 case 'ad':
-                    ad = <Overlay />
+                    overlay = <Overlay data={ this.state.data }/>;
                     break;
             }
         }
+
         return (
             <div className="app">
                 <Video videoSrc={ this.state.videoSrc }/>
-                {ad}
+                { overlay }
             </div>
         );
     }
