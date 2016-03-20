@@ -5,6 +5,10 @@
             "timecode": 1,
             "type": "ad",
             "text": "Hello World after 1 seconds",
+            "filter": [
+                "opel",
+                "adam"
+            ],
             "duration": 3,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
@@ -12,6 +16,10 @@
             "timecode": 2,
             "type": "geo",
             "text": "Hello World after 2 seconds",
+            "filter": [
+                "reise",
+                "venezuela"
+            ],
             "lat": 5.970092,
             "long": -62.536203,
             "duration": 3,
@@ -26,6 +34,15 @@
         },
         {
             "timecode": 12,
+            "type": "geo",
+            "text": "Hello World after 2 seconds",
+            "lat": 28.613939,
+            "long": 77.209021,
+            "duration": 3,
+            "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
+        },
+        {
+            "timecode": 15,
             "type": "ad",
             "text": "Hello World after 12 seconds",
             "duration": 5,

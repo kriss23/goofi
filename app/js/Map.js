@@ -53,14 +53,16 @@ var Map = React.createClass({
                             var timeLeft = goalTime - Date.now();
                             if (timeLeft < 0){
                                 timeLeft = 0
+                                lastLatitude = newLatitude
+                                lastLongitude = newLongitude
                                 return
                             }
 
                             console.log("now: " + Date.now() + " - timeLeft" + timeLeft)
 
                             earth.setCenter([
-                                lastLatitude + ((newLatitude - lastLatitude) * (1 - (0.00025 * timeLeft))),
-                                lastLongitude + ((newLongitude - lastLongitude) * (1 - (0.00025 * timeLeft))),
+                                lastLatitude + ((newLatitude - lastLatitude) * (1 - (0.0005 * timeLeft))),
+                                lastLongitude + ((newLongitude - lastLongitude) * (1 - (0.0005 * timeLeft))),
                             ]);
                             setTimeout(requestAnimationFrame, 25); // 50 Hz
                         };
@@ -71,7 +73,7 @@ var Map = React.createClass({
                     console.log("Got Coordinates lat: " + data.msg.data.lat);
                     console.log("Got Coordinates long: " + data.msg.data.long);
                     $( "#earth_div" ).show();
-                    wasEarthUpdatedRecently = 5
+                    wasEarthUpdatedRecently = 0
                 } else {
                     isNewCoordinate = true
                 }
