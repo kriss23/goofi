@@ -27,6 +27,7 @@ var App = React.createClass({
     handleOnKeyDown: function () {
         console.log('handle on key down');
         if (this.state.ad) {
+            console.log(this.state.ad.mobile);
             if (window.channel) {
                 console.log('Channel is ready, trying to push ');
                 window.channel.publish('say',
