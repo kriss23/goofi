@@ -74,7 +74,7 @@ var App = React.createClass({
                 this.active = true;
 
                 self.setState({
-                    ad: type,
+                    ad: data.msg.data,
                     adOn: true
                 });
             } else {
@@ -93,13 +93,15 @@ var App = React.createClass({
 
     render: function () {
         var overlay;
-        switch (this.state.ad) {
-            case 'geo':
-                overlay = <Overlay type="geo" />;
-                break;
-            case 'ad':
-                overlay = <Overlay type="ad" />;
-                break;
+        if (this.state.ad){
+            switch (this.state.ad.type) {
+                case 'geo':
+                    overlay = <Overlay ad={this.state.ad} />;
+                    break;
+                case 'ad':
+                    overlay = <Overlay ad={this.state.ad} />;
+                    break;
+            }
         }
         return (
             <div className="app">

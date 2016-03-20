@@ -2,14 +2,14 @@
     "result": "success",
     "msg": [
         {
-            "timecode": 10,
+            "timecode": 20,
             "type": "ad",
             "text": "Hello World after 3 seconds",
             "filter": [
                 "opel",
                 "adam"
             ],
-            "duration": 3,
+            "duration": 10,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
@@ -23,14 +23,17 @@
             "timecode": 65,
             "type": "geo",
             "text": "Hello World after 2 seconds",
-            "filter": [],
+            "filter": [
+                "reise",
+                "indien"
+            ],
             "lat": 28.613939,
             "long": 77.209021,
-            "duration": 5,
+            "duration": 8,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         },
         {
-            "timecode": 80,
+            "timecode": 108,
             "type": "geo",
             "text": "Hello World after 8 seconds",
             "filter": [
@@ -39,7 +42,7 @@
             ],
             "lat": 5.970092,
             "long": -62.536203,
-            "duration": 5,
+            "duration": 8,
             "img": "https://en.wikipedia.org/wiki/Car#/media/File:BMW_E90_Kirrinsannassa_2.jpg"
         }
     ]
