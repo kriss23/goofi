@@ -40,17 +40,19 @@ app.get('/getLastMessage/', function(req, res) {
     for (var i = 0; i < timecodes_json.msg.length; i++) {
         if (timecodes_json.msg[i].timecode <= timecode){
             last_message = timecodes_json.msg[i]
-            last_message.filtered = false
+            //last_message.filtered = false
+            //if (last_message.timecode + last_message.duration >= timecode){
+              //  last_message.active = true
+                //console.log("TTTT" + isUserInterested)
+                // if (!isUserInterested && (
+                //         last_message.filter.indexOf("opel") > -1 ||
+                //         last_message.filter.indexOf("adam") > -1))
+                // {
+                //         last_message.filtered = true
+                //         last_message.active = false
+                // }
             if (last_message.timecode + last_message.duration >= timecode){
                 last_message.active = true
-                console.log("TTTT" + isUserInterested)
-                if (!isUserInterested && (
-                        last_message.filter.indexOf("opel") > -1 ||
-                        last_message.filter.indexOf("adam") > -1))
-                {
-                        last_message.filtered = true
-                        last_message.active = false
-                }
             } else {
                 last_message.active = false
             }

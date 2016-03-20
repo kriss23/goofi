@@ -79,13 +79,13 @@ var Map = React.createClass({
             }
 
             wasEarthUpdatedRecently += 1;
-            //setTimeout(pollApi, 1000);
+            setTimeout(pollApi, 1000);
         }
 
         initializeEarth();
         $( "#earth_div" ).hide();
 
-        //setTimeout(pollApi, 1000);
+        setTimeout(pollApi, 1000);
     },
 
     render: function () {
