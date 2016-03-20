@@ -28,9 +28,9 @@ video {
 
 .moving-car {
 	position: absolute;
-	left: -500px;
+	left: -900px;
 	width: auto;
-	height: 100px;
+	height: 200px;
 	-webkit-animation: moving-car 2s forwards;
 	-webkit-animation-delay: 2s;
 	animation: moving-car 2s forwards;
@@ -41,13 +41,25 @@ video {
 .car-logo {
     right: 20px;
     position: fixed;
-    width: 150px;
+    width: 300px;
     -webkit-animation: car-logo 2s forwards;
     -webkit-animation-delay: 3s;
     animation: car-logo 2s forwards;
     animation-delay: 3s;
     opacity: 0;
     bottom: 40px;
+}
+
+.button {
+    right: 20px;
+    top: 20px;
+    position: fixed;
+    width: 200px;
+    -webkit-animation: button 2s forwards;
+    -webkit-animation-delay: 4s;
+    animation: button 2s forwards;
+    animation-delay: 4s;
+    opacity: 0;
 }
 
 @-webkit-keyframes car-logo {
@@ -68,12 +80,30 @@ video {
     }
 }
 
+@-webkit-keyframes button {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes button {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @-webkit-keyframes moving-car {
     0% {
         left: -10%;
     }
 	100% {
-        left: calc(100% - 620px);
+        left: calc(100% - 1200px);
     }
 }
 
@@ -82,7 +112,7 @@ video {
         left: -10%;
     }
     100% {
-        left: calc(100% - 620px);
+        left: calc(100% - 1200px);
     }
 }
 
@@ -97,7 +127,7 @@ video {
 }
 
 #earth_div {
-    width: 300px;
+    width: 1400px;
     position: absolute !important;
 }
 
@@ -107,14 +137,14 @@ video {
 
 .map {
     position: fixed;
-    bottom: 170px;
-    left: calc(100% - 280px);
+    bottom: 480px;
+    left: calc(100% - 830px);
 }
 
 .image {
     position: fixed;
     bottom: 10px;
-    left: calc(100% - 250px);
-    height: 200px;
+    left: calc(100% - 320px);
+    height: 250px;
     z-index: 100;
 }

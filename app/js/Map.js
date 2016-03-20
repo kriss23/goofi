@@ -26,7 +26,7 @@ var Map = React.createClass({
             var before = 0;
 
             console.log("HEHRREE");
-            earth.setView([46.8011, 8.2266], 0.2);
+            earth.setView([46.8011, 8.2266], 0.5);
         }
 
         function pollApi() {
