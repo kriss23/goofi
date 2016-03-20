@@ -104,3 +104,9 @@ video {
 .cesium-credit-textContainer{
     display: none;
 }
+
+.map {
+    position: fixed;
+    bottom: 170px;
+    left: calc(100% - 280px);
+}
